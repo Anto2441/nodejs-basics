@@ -13,3 +13,10 @@
 - Middleware
 - Routing
 - Serve Files
+
+# Working with Templating Engines
+
+- Discovering Pug / Handlebars / EJS
+- Sharing data across requests & users
+- Outputting dynamic content
+- Converting HTML files to templates files
