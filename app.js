@@ -1,21 +1,29 @@
 /**
- * index.js
- *
  * This is the main entry point of our application, this file starts
  * the Express server and sets up the routes and middleware.
  */
 
-const express = require('express');
-
 const path = require('path');
+
+const express = require('express');
 
 const app = express();
 
-// View engine setup
-app.set('view engine', 'pug');
+// This sets the view engine, so that when we call res.render('some-view'),
+// Express knows which template engine to use to render that view.
+// In this case, we're using the EJS view engine.
+app.set('view engine', 'ejs');
+
+// This sets the directory where Express should look for views.
+// In this case, it's the 'views' directory in the root of our project.
 app.set('views', path.join(__dirname, 'views'));
 
+// This line imports the routes for the admin section of the site
+// and gives us access to them at `adminData.routes`.
 const adminData = require('./routes/admin');
+
+// This line imports the routes for the shop section of the site
+// and gives us access to them at `shopRoutes`.
 const shopRoutes = require('./routes/shop');
 
 // Middleware Setup

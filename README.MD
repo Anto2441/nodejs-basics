@@ -20,3 +20,4 @@
 - Sharing data across requests & users
 - Outputting dynamic content
 - Converting HTML files to templates files
+- EJS focus - working with Partials
