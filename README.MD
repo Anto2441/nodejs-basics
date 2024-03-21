@@ -21,3 +21,7 @@
 - Outputting dynamic content
 - Converting HTML files to templates files
 - EJS focus - working with Partials
+
+# Model View Controller
+
+- Using the Model-View-Controller (MVC) Pattern
