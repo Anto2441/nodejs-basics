@@ -25,3 +25,7 @@
 # Model View Controller
 
 - Using the Model-View-Controller (MVC) Pattern
+
+# Dynamic Routes & Advanced Models
+
+- Dynamic path & params
