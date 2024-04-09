@@ -28,4 +28,5 @@
 
 # Dynamic Routes & Advanced Models
 
-- Dynamic path & params
+- Dynamic routing (path & query parameters)
+- Interaction between models
