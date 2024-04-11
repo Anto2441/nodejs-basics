@@ -30,3 +30,9 @@
 
 - Dynamic routing (path & query parameters)
 - Interaction between models
+
+# SQL Introduction
+
+- Comparing SQL and NoQSL
+- Connecting the app to the SQL database
+- Fetching and inserting products

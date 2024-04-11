@@ -39,7 +39,6 @@ const server = http.createServer((req, res) => {
         res.setHeader('Location', '/');
         return res.end();
       });
-      console.log('user', user);
     });
   }
 });
