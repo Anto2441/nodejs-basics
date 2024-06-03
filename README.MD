@@ -36,3 +36,15 @@
 - Comparing SQL and NoQSL
 - Connecting the app to the SQL database
 - Fetching and inserting products
+
+# Sequelize
+
+- Database Abstraction
+- Model Definition and Management
+- Database Operations and Migrations
+
+# NoSQL with MongoDB
+
+- Alternatives to SQL databases
+- No strict schemas - Fewer relations
+- Working with MongoDB databases
