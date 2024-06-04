@@ -48,3 +48,9 @@
 - Alternatives to SQL databases
 - No strict schemas - Fewer relations
 - Working with MongoDB databases
+
+# Mongoose
+
+- Schema-Based Modeling
+- Query building
+- Integration with MongoDB
