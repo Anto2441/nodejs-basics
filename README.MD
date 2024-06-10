@@ -54,3 +54,8 @@
 - Schema-Based Modeling
 - Query building
 - Integration with MongoDB
+
+# Sessions & cookies
+
+- Adding and manipulating cookies
+- Initializing and using session with MongoDB
