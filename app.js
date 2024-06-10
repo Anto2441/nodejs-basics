@@ -11,6 +11,8 @@ const mongooseConnect = require('./util/database').mongooseConnect;
 const MONGODB_URI = require('./util/database').MONGODB_URI;
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const csrf = require('csurf');
+const flash = require('connect-flash');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -20,6 +22,7 @@ const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions',
 });
+const csrfProtection = csrf();
 
 // This sets the view engine, so that when we call res.render('some-view'),
 // In this case, we're using the EJS view engine.
@@ -53,6 +56,9 @@ app.use(
     store: store,
   })
 );
+app.use(csrfProtection);
+app.use(flash());
+
 app.use((req, res, next) => {
   if (!req.session.user) {
     return next();
@@ -65,6 +71,12 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
 //Routes
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
@@ -74,17 +86,5 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongooseConnect(() => {
-  User.findOne({}).then((user) => {
-    if (!user) {
-      const user = new User({
-        name: 'Anto',
-        email: 'Toto@gmail.com',
-        cart: {
-          items: [],
-        },
-      });
-      user.save();
-    }
-  });
   app.listen(3000);
 });

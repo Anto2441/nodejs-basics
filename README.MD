@@ -59,3 +59,10 @@
 
 - Adding and manipulating cookies
 - Initializing and using session with MongoDB
+
+# Authentication
+
+- Login and logout
+- Hashed passwords
+- Protecting routes with CSRF
+- Flash messages
