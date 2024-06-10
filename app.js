@@ -7,15 +7,21 @@ const path = require('path');
 
 const express = require('express');
 
-const app = express();
+const mongooseConnect = require('./util/database').mongooseConnect;
+const MONGODB_URI = require('./util/database').MONGODB_URI;
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const errorController = require('./controllers/error');
-const mongooseConnect = require('./util/database').mongooseConnect;
-
 const User = require('./models/user');
 
+const app = express();
+const store = new MongoDBStore({
+  uri: MONGODB_URI,
+  collection: 'sessions',
+});
+
 // This sets the view engine, so that when we call res.render('some-view'),
-// Express knows which template engine to use to render that view.
 // In this case, we're using the EJS view engine.
 app.set('view engine', 'ejs');
 
@@ -31,13 +37,27 @@ const adminRoutes = require('./routes/admin');
 // and gives us access to them at `shopRoutes`.
 const shopRoutes = require('./routes/shop');
 
+// This line imports the routes for the authentication section of the site and gives us access to them at `authRoutes`.
+// The authentication routes are responsible for handling the user's login and logout actions.
+const authRoutes = require('./routes/auth');
+
 // Middleware Setup
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(
+  session({
+    secret: 'azerty',
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
 app.use((req, res, next) => {
-  User.findById('665ed327e58e909393ed11ed')
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then((user) => {
       req.user = user;
       next();
@@ -48,6 +68,7 @@ app.use((req, res, next) => {
 //Routes
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 // 404 Handler
 app.use(errorController.get404);
