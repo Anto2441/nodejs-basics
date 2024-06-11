@@ -66,3 +66,9 @@
 - Hashed passwords
 - Protecting routes with CSRF
 - Flash messages
+
+# Email & advanced authentication
+
+- Using Nodemail to send emails
+- Password reseting
+- Authorization
