@@ -72,3 +72,15 @@
 - Using Nodemail to send emails
 - Password reseting
 - Authorization
+
+# Validation
+
+- Custom validators with express-validator
+- Display error messages
+- Sanatizing user input
+
+# Errors
+
+- Types of errors and Handling errors
+- Error handling middleware
+- Status codes
