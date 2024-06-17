@@ -84,3 +84,9 @@
 - Types of errors and Handling errors
 - Error handling middleware
 - Status codes
+
+# Upload and download
+
+- Handling file upload with Multer
+- Streaming files
+- PDF generation with PDFkit

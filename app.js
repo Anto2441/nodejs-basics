@@ -6,13 +6,14 @@
 const path = require('path');
 
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const mongooseConnect = require('./util/database').mongooseConnect;
 const MONGODB_URI = require('./util/database').MONGODB_URI;
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
+const multer = require('multer');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -23,6 +24,27 @@ const store = new MongoDBStore({
   collection: 'sessions',
 });
 const csrfProtection = csrf();
+
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/jpeg'
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
 
 // This sets the view engine, so that when we call res.render('some-view'),
 // In this case, we're using the EJS view engine.
@@ -45,9 +67,13 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 // Middleware Setup
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
+);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(
   session({
     secret: 'azerty',
