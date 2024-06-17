@@ -90,3 +90,7 @@
 - Handling file upload with Multer
 - Streaming files
 - PDF generation with PDFkit
+
+# Pagination
+
+- Adding dynamic pagination links
