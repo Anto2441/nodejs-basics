@@ -94,3 +94,8 @@
 # Pagination
 
 - Adding dynamic pagination links
+
+# Asyncs requests
+
+- Client Side JS code
+- Sending and handling background requests
