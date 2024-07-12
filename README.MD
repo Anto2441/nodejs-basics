@@ -1,101 +1,80 @@
-# Fundamentals
+# Node.js Shop Application
 
-- Program Lifecycle and Event loop
-- Asynchronous code
-- Requests and responses
-- Core modules
-- Node module system
-- Autorestarts with Nodemon
-- Debugging
+A Node.js shop application featuring user authentication, product management, order processing, and integration with SQL and NoSQL databases, demonstrating practical RESTful API implementation.
 
-# Working with Express.js
+![Shop Application](images/shop-app.png)
 
-- Middleware
-- Routing
-- Serve Files
+## Fundamentals
 
-# Working with Templating Engines
+- **Lifecycle & Event Loop**: Basics of Node.js lifecycle and asynchronous operations.
+- **Core Modules & Module System**: Using Node.js built-in modules and managing dependencies.
+- **Nodemon & Debugging**: Autorestarts and debugging techniques.
 
-- Discovering Pug / Handlebars / EJS
-- Sharing data across requests & users
-- Outputting dynamic content
-- Converting HTML files to templates files
-- EJS focus - working with Partials
+## Express.js
 
-# Model View Controller
+- **Middleware & Routing**: Handling requests and responses, setting up routes.
+- **Serving Files**: Deliver static content efficiently.
 
-- Using the Model-View-Controller (MVC) Pattern
+## Templating Engines
 
-# Dynamic Routes & Advanced Models
+- **Pug / Handlebars / EJS**: Using different templating engines.
+- **Dynamic Content & Partials**: Creating dynamic web pages and reusable template parts.
 
-- Dynamic routing (path & query parameters)
-- Interaction between models
+## MVC Pattern
 
-# SQL Introduction
+- **Model-View-Controller**: Structuring applications with MVC for better organization.
 
-- Comparing SQL and NoQSL
-- Connecting the app to the SQL database
-- Fetching and inserting products
+## Dynamic Routes & Models
 
-# Sequelize
+- **Dynamic Routing**: Using path and query parameters.
+- **Advanced Models**: Managing relationships between data models.
 
-- Database Abstraction
-- Model Definition and Management
-- Database Operations and Migrations
+## SQL Introduction
 
-# NoSQL with MongoDB
+- **SQL vs. NoSQL**: Differences and use cases.
+- **Database Operations**: Connecting, fetching, and inserting data.
 
-- Alternatives to SQL databases
-- No strict schemas - Fewer relations
-- Working with MongoDB databases
+## Sequelize
 
-# Mongoose
+- **Abstraction & Migrations**: Simplifying database operations with Sequelize.
 
-- Schema-Based Modeling
-- Query building
-- Integration with MongoDB
+## NoSQL with MongoDB
 
-# Sessions & cookies
+- **Flexible Schemas**: Working with MongoDB for schema-less design.
 
-- Adding and manipulating cookies
-- Initializing and using session with MongoDB
+## Mongoose
 
-# Authentication
+- **Schema Modeling & Queries**: Defining schemas and building queries with Mongoose.
 
-- Login and logout
-- Hashed passwords
-- Protecting routes with CSRF
-- Flash messages
+## Sessions & Cookies
 
-# Email & advanced authentication
+- **Session Management**: Handling sessions and cookies for user state.
 
-- Using Nodemail to send emails
-- Password reseting
-- Authorization
+## Authentication
 
-# Validation
+- **User Authentication**: Implementing login, logout, and route protection.
 
-- Custom validators with express-validator
-- Display error messages
-- Sanatizing user input
+## Advanced Authentication
 
-# Errors
+- **Nodemailer & Password Reset**: Sending emails and handling password resets.
+- **Authorization**: Managing user permissions.
 
-- Types of errors and Handling errors
-- Error handling middleware
-- Status codes
+## Validation
 
-# Upload and download
+- **Input Validation & Sanitization**: Ensuring data integrity with express-validator.
 
-- Handling file upload with Multer
-- Streaming files
-- PDF generation with PDFkit
+## Error Handling
 
-# Pagination
+- **Middleware & Status Codes**: Managing errors and appropriate status codes.
 
-- Adding dynamic pagination links
+## File Handling
 
-# Asyncs requests
+- **Upload & Download**: Handling file uploads with Multer and generating PDFs.
 
-- Client Side JS code
-- Sending and handling background requests
+## Pagination
+
+- **Dynamic Links**: Implementing pagination for large datasets.
+
+## Async Requests
+
+- **Client-Side JS**: Managing background requests with JavaScript.
